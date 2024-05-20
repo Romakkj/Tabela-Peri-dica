@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela Periódica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      gap: 2px;
+      padding: 10px;
+      position: relative; /* Para que o quadrado de informações fique posicionado corretamente */
+    }
+
+    .element {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #fff;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      box-shadow:
+        3px 3px black;
+        -1em 0 0.4em olive;
+      position: relative; /* Para que o quadrado de informações fique posicionado corretamente */
+    }
+
+    .element:hover {
+      background-color: #fff;
+    }
+
+    .atomic-number {
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .symbol {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .name {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .atomic-mass {
+      font-size: 12px;
+    }
+
+    /* Estilos adicionais para melhorar a interface */
+    .element:hover .symbol {
+      color: #000; /* Laranja */
+    }
+
+    .element:hover .name {
+      color: #000; /* Azul aço */
+    }
+
+    .element:hover .atomic-mass {
+      color: #000; /* Verde limão */
+    }
+    .element:hover .atomic-number {
+      color: #000;  
+    }
+
+    /* Quadrado com informações gerais */
+    .info-square {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 14px;
+      z-index: 1;
+	  box-shadow:
+        3px 3px black;
+        -1em 0 0.4em olive;
+      top: 100px; /* Ajuste a posição conforme necessário */
+      left: 400px; /* Ajuste a posição conforme necessário */
+    }
+
+  </style>
+</head>
+<body>
+<div class="periodic-table">
+    <!-- H -->
+    <div class="element" style="grid-column: 1; grid-row: 1;">
+        <div class="atomic-number">1</div>
+        <div class="symbol">H</div>
+        <div class="name">Hidrogênio</div>
+        <div class="atomic-mass">1.008</div>
+    </div>
+    <!-- He -->
+    <div class="element" style="grid-column: 18; grid-row: 1;">
+        <div class="atomic-number">2</div>
+        <div class="symbol">He</div>
+        <div class="name">Hélio</div>
+        <div class="atomic-mass">4.0026</div>
+    </div>
+    <!-- Li -->
+    <div class="element" style="grid-column: 1; grid-row: 2;">
+        <div class="atomic-number">3</div>
+        <div class="symbol">Li</div>
+        <div class="name">Lítio</div>
+        <div class="atomic-mass">6.94</div>
+    </div>
+    <!-- Be -->
+    <div class="element" style="grid-column: 2; grid-row: 2;">
+        <div class="atomic-number">4</div>
+        <div class="symbol">Be</div>
+        <div class="name">Berílio</div>
+        <div class="atomic-mass">9.0122</div>
+    </div>
+    <!-- B -->
+    <div class="element" style="grid-column: 13; grid-row: 2;">
+        <div class="atomic-number">5</div>
+        <div class="symbol">B</div>
+        <div class="name">Boro</div>
+        <div class="atomic-mass">10.81</div>
+    </div>
+    <!-- C -->
+    <div class="element" style="grid-column: 14; grid-row: 2;">
+        <div class="atomic-number">6</div>
+        <div class="symbol">C</div>
+        <div class="name">Carbono</div>
+        <div class="atomic-mass">12.011</div>
+    </div>
+    <!-- N -->
+    <div class="element" style="grid-column: 15; grid-row: 2;">
+        <div class="atomic-number">7</div>
+        <div class="symbol">N</div>
+        <div class="name">Nitrogênio</div>
+        <div class="atomic-mass">14.007</div>
+    </div>
+    <!-- O -->
+    <div class="element" style="grid-column: 16; grid-row: 2;">
+        <div class="atomic-number">8</div>
+        <div class="symbol">O</div>
+        <div class="name">Oxigênio</div>
+        <div class="atomic-mass">15.999</div>
+    </div>
+    <!-- F -->
+    <div class="element" style="grid-column: 17; grid-row: 2;">
+        <div class="atomic-number">9</div>
+        <div class="symbol">F</div>
+        <div class="name">Flúor</div>
+        <div class="atomic-mass">18.998</div>
+    </div>
+    <!-- Ne -->
+    <div class="element" style="grid-column: 18; grid-row: 2;">
+        <div class="atomic-number">10</div>
+        <div class="symbol">Ne</div>
+        <div class="name">Neônio</div>
+        <div class="atomic-mass">20.180</div>
+    </div>
+    <!-- Na -->
+    <div class="element" style="grid-column: 1; grid-row: 3;">
+        <div class="atomic-number">11</div>
+        <div class="symbol">Na</div>
+        <div class="name">Sódio</div>
+        <div class="atomic-mass">22.990</div>
+    </div>
+    <!-- Mg -->
+    <div class="element" style="grid-column: 2; grid-row: 3;">
+        <div class="atomic-number">12</div>
+        <div class="symbol">Mg</div>
+        <div class="name">Magnésio</div>
+        <div class="atomic-mass">24.305</div>
+    </div>
+    <!-- Al -->
+    <div class="element" style="grid-column: 13; grid-row: 3;">
+        <div class="atomic-number">13</div>
+        <div class="symbol">Al</div>
+        <div class="name">Alumínio</div>
+        <div class="atomic-mass">26.982</div>
+    </div>
+    <!-- Si -->
+    <div class="element" style="grid-column: 14; grid-row: 3;">
+        <div class="atomic-number">14</div>
+        <div class="symbol">Si</div>
+        <div class="name">Silício</div>
+        <div class="atomic-mass">28.085</div>
+    </div>
+    <!-- P -->
+    <div class="element" style="grid-column: 15; grid-row: 3;">
+        <div class="atomic-number">15</div>
+        <div class="symbol">P</div>
+        <div class="name">Fósforo</div>
+        <div class="atomic-mass">30.974</div>
+    </div>
+    <!-- S -->
+    <div class="element" style="grid-column: 16; grid-row: 3;">
+        <div class="atomic-number">16</div>
+        <div class="symbol">S</div>
+        <div class="name">Enxofre</div>
+        <div class="atomic-mass">32.06</div>
+    </div>
+    <!-- Cl -->
+    <div class="element" style="grid-column: 17; grid-row: 3;">
+        <div class="atomic-number">17</div>
+        <div class="symbol">Cl</div>
+        <div class="name">Cloro</div>
+        <div class="atomic-mass">35.45</div>
+    </div>
+    <!-- Ar -->
+    <div class="element" style="grid-column: 18; grid-row: 3;">
+        <div class="atomic-number">18</div>
+        <div class="symbol">Ar</div>
+        <div class="name">Argônio</div>
+        <div class="atomic-mass">39.948</div>
+    </div>
+    <!-- K -->
+    <div class="element" style="grid-column: 1; grid-row: 4;">
+        <div class="atomic-number">19</div>
+        <div class="symbol">K</div>
+        <div class="name">Potássio</div>
+        <div class="atomic-mass">39.098</div>
+    </div>
+    <!-- Ca -->
+    <div class="element" style="grid-column: 2; grid-row: 4;">
+        <div class="atomic-number">20</div>
+        <div class="symbol">Ca</div>
+        <div class="name">Cálcio</div>
+        <div class="atomic-mass">40.078</div>
+    </div>
+    <!-- Sc -->
+    <div class="element" style="grid-column: 3; grid-row: 4;">
+        <div class="atomic-number">21</div>
+        <div class="symbol">Sc</div>
+        <div class="name">Escândio</div>
+        <div class="atomic-mass">44.956</div>
+    </div>
+    <!-- Ti -->
+    <div class="element" style="grid-column: 4; grid-row: 4;">
+        <div class="atomic-number">22</div>
+        <div class="symbol">Ti</div>
+        <div class="name">Titânio</div>
+        <div class="atomic-mass">47.867</div>
+    </div>
+    <!-- V -->
+    <div class="element" style="grid-column: 5; grid-row: 4;">
+        <div class="atomic-number">23</div>
+        <div class="symbol">V</div>
+        <div class="name">Vanádio</div>
+        <div class="atomic-mass">50.942</div>
+    </div>
+    <!-- Cr -->
+    <div class="element" style="grid-column: 6; grid-row: 4;">
+        <div class="atomic-number">24</div>
+        <div class="symbol">Cr</div>
+        <div class="name">Cromo</div>
+        <div class="atomic-mass">51.996</div>
+    </div>
+    <!-- Mn -->
+    <div class="element" style="grid-column: 7; grid-row: 4;">
+        <div class="atomic-number">25</div>
+        <div class="symbol">Mn</div>
+        <div class="name">Manganês</div>
+        <div class="atomic-mass">54.938</div>
+    </div>
+    <!-- Fe -->
+    <div class="element" style="grid-column: 8; grid-row: 4;">
+        <div class="atomic-number">26</div>
+        <div class="symbol">Fe</div>
+        <div class="name">Ferro</div>
+        <div class="atomic-mass">55.845</div>
+    </div>
+    <!-- Co -->
+    <div class="element" style="grid-column: 9; grid-row: 4;">
+        <div class="atomic-number">27</div>
+        <div class="symbol">Co</div>
+        <div class="name">Cobalto</div>
+        <div class="atomic-mass">58.933</div>
+    </div>
+    <!-- Ni -->
+    <div class="element" style="grid-column: 10; grid-row: 4;">
+        <div class="atomic-number">28</div>
+        <div class="symbol">Ni</div>
+        <div class="name">Níquel</div>
+        <div class="atomic-mass">58.693</div>
+    </div>
+    <!-- Cu -->
+    <div class="element" style="grid-column: 11; grid-row: 4;">
+        <div class="atomic-number">29</div>
+        <div class="symbol">Cu</div>
+        <div class="name">Cobre</div>
+        <div class="atomic-mass">63.546</div>
+    </div>
+    <!-- Zn -->
+    <div class="element" style="grid-column: 12; grid-row: 4;">
+        <div class="atomic-number">30</div>
+        <div class="symbol">Zn</div>
+        <div class="name">Zinco</div>
+        <div class="atomic-mass">65.38</div>
+    </div>
+    <!-- Ga -->
+    <div class="element" style="grid-column: 13; grid-row: 4;">
+        <div class="atomic-number">31</div>
+        <div class="symbol">Ga</div>
+        <div class="name">Gálio</div>
+        <div class="atomic-mass">69.723</div>
+    </div>
+    <!-- Ge -->
+    <div class="element" style="grid-column: 14; grid-row: 4;">
+        <div class="atomic-number">32</div>
+        <div class="symbol">Ge</div>
+        <div class="name">Germânio</div>
+        <div class="atomic-mass">72.63</div>
+    </div>
+    <!-- As -->
+    <div class="element" style="grid-column: 15; grid-row: 4;">
+        <div class="atomic-number">33</div>
+        <div class="symbol">As</div>
+        <div class="name">Arsênio</div>
+        <div class="atomic-mass">74.922</div>
+    </div>
+    <!-- Se -->
+    <div class="element" style="grid-column: 16; grid-row: 4;">
+        <div class="atomic-number">34</div>
+        <div class="symbol">Se</div>
+        <div class="name">Selênio</div>
+        <div class="atomic-mass">78.971</div>
+    </div>
+    <!-- Br -->
+    <div class="element" style="grid-column: 17; grid-row: 4;">
+        <div class="atomic-number">35</div>
+        <div class="symbol">Br</div>
+        <div class="name">Bromo</div>
+        <div class="atomic-mass">79.904</div>
+    </div>
+    <!-- Kr -->
+    <div class="element" style="grid-column: 18; grid-row: 4;">
+        <div class="atomic-number">36</div>
+        <div class="symbol">Kr</div>
+        <div class="name">Criptônio</div>
+        <div class="atomic-mass">83.798</div>
+    </div>
+    <!-- Rb -->
+    <div class="element" style="grid-column: 1; grid-row: 5;">
+        <div class="atomic-number">37</div>
+        <div class="symbol">Rb</div>
+        <div class="name">Rubídio</div>
+        <div class="atomic-mass">85.468</div>
+    </div>
+    <!-- Sr -->
+    <div class="element" style="grid-column: 2; grid-row: 5;">
+        <div class="atomic-number">38</div>
+        <div class="symbol">Sr</div>
+        <div class="name">Estrôncio</div>
+        <div class="atomic-mass">87.62</div>
+    </div>
+    <!-- Y -->
+    <div class="element" style="grid-column: 3; grid-row: 5;">
+        <div class="atomic-number">39</div>
+        <div class="symbol">Y</div>
+        <div class="name">Ítrio</div>
+        <div class="atomic-mass">88.906</div>
+    </div>
+    <!-- Zr -->
+    <div class="element" style="grid-column: 4; grid-row: 5;">
+        <div class="atomic-number">40</div>
+        <div class="symbol">Zr</div>
+        <div class="name">Zircônio</div>
+        <div class="atomic-mass">91.224</div>
+    </div>
+    <!-- Nb -->
+    <div class="element" style="grid-column: 5; grid-row: 5;">
+        <div class="atomic-number">41</div>
+        <div class="symbol">Nb</div>
+        <div class="name">Nióbio</div>
+        <div class="atomic-mass">92.906</div>
+    </div>
+    <!-- Mo -->
+    <div class="element" style="grid-column: 6; grid-row: 5;">
+        <div class="atomic-number">42</div>
+        <div class="symbol">Mo</div>
+        <div class="name">Molibdênio</div>
+        <div class="atomic-mass">95.95</div>
+    </div>
+    <!-- Tc -->
+    <div class="element" style="grid-column: 7; grid-row: 5;">
+        <div class="atomic-number">43</div>
+        <div class="symbol">Tc</div>
+        <div class="name">Tecnécio</div>
+        <div class="atomic-mass">98</div>
+    </div>
+    <!-- Ru -->
+    <div class="element" style="grid-column: 8; grid-row: 5;">
+        <div class="atomic-number">44</div>
+        <div class="symbol">Ru</div>
+        <div class="name">Rutênio</div>
+        <div class="atomic-mass">101.07</div>
+    </div>
+    <!-- Rh -->
+    <div class="element" style="grid-column: 9; grid-row: 5;">
+        <div class="atomic-number">45</div>
+        <div class="symbol">Rh</div>
+        <div class="name">Ródio</div>
+        <div class="atomic-mass">102.906</div>
+    </div>
+    <!-- Pd -->
+    <div class="element" style="grid-column: 10; grid-row: 5;">
+        <div class="atomic-number">46</div>
+        <div class="symbol">Pd</div>
+        <div class="name">Paládio</div>
+        <div class="atomic-mass">106.42</div>
+    </div>
+    <!-- Ag -->
+    <div class="element" style="grid-column: 11; grid-row: 5;">
+        <div class="atomic-number">47</div>
+        <div class="symbol">Ag</div>
+        <div class="name">Prata</div>
+        <div class="atomic-mass">107.868</div>
+    </div>
+    <!-- Cd -->
+    <div class="element" style="grid-column: 12; grid-row: 5;">
+        <div class="atomic-number">48</div>
+        <div class="symbol">Cd</div>
+        <div class="name">Cádmio</div>
+        <div class="atomic-mass">112.414</div>
+    </div>
+    <!-- In -->
+    <div class="element" style="grid-column: 13; grid-row: 5;">
+        <div class="atomic-number">49</div>
+        <div class="symbol">In</div>
+        <div class="name">Índio</div>
+        <div class="atomic-mass">114.818</div>
+    </div>
+    <!-- Sn -->
+    <div class="element" style="grid-column: 14; grid-row: 5;">
+        <div class="atomic-number">50</div>
+        <div class="symbol">Sn</div>
+        <div class="name">Estanho</div>
+        <div class="atomic-mass">118.711</div>
+    </div>
+    <!-- Sb -->
+    <div class="element" style="grid-column: 15; grid-row: 5;">
+        <div class="atomic-number">51</div>
+        <div class="symbol">Sb</div>
+        <div class="name">Antimônio</div>
+        <div class="atomic-mass">121.76</div>
+    </div>
+    <!-- Te -->
+    <div class="element" style="grid-column: 16; grid-row: 5;">
+        <div class="atomic-number">52</div>
+        <div class="symbol">Te</div>
+        <div class="name">Telúrio</div>
+        <div class="atomic-mass">127.6</div>
+    </div>
+    <!-- I -->
+    <div class="element" style="grid-column: 17; grid-row: 5;">
+        <div class="atomic-number">53</div>
+        <div class="symbol">I</div>
+        <div class="name">Iodo</div>
+        <div class="atomic-mass">126.904</div>
+    </div>
+    <!-- Xe -->
+    <div class="element" style="grid-column: 18; grid-row: 5;">
+        <div class="atomic-number">54</div>
+        <div class="symbol">Xe</div>
+        <div class="name">Xenônio</div>
+        <div class="atomic-mass">131.294</div>
+    </div>
+    <!-- Cs -->
+    <div class="element" style="grid-column: 1; grid-row: 6;">
+        <div class="atomic-number">55</div>
+        <div class="symbol">Cs</div>
+        <div class="name">Césio</div>
+        <div class="atomic-mass">132.905</div>
+    </div>
+    <!-- Ba -->
+    <div class="element" style="grid-column: 2; grid-row: 6;">
+        <div class="atomic-number">56</div>
+        <div class="symbol">Ba</div>
+        <div class="name">Bário</div>
+        <div class="atomic-mass">137.327</div>
+    </div>
+    <!-- La -->
+    <div class="element" style="grid-column: 4; grid-row: 39;">
+        <div class="atomic-number">57</div>
+        <div class="symbol">La</div>
+        <div class="name">Lantânio</div>
+        <div class="atomic-mass">138.905</div>
+    </div>
+    <!-- Ce -->
+    <div class="element" style="grid-column: 5; grid-row: 39;">
+        <div class="atomic-number">58</div>
+        <div class="symbol">Ce</div>
+        <div class="name">Cério</div>
+        <div class="atomic-mass">140.116</div>
+    </div>
+    <!-- Pr -->
+    <div class="element" style="grid-column: 6; grid-row: 39;">
+        <div class="atomic-number">59</div>
+        <div class="symbol">Pr</div>
+        <div class="name">Praseodímio</div>
+        <div class="atomic-mass">140.907</div>
+    </div>
+    <!-- Nd -->
+    <div class="element" style="grid-column: 7; grid-row: 39;">
+        <div class="atomic-number">60</div>
+        <div class="symbol">Nd</div>
+        <div class="name">Neodímio</div>
+        <div class="atomic-mass">144.242</div>
+    </div>
+    <!-- Pm -->
+    <div class="element" style="grid-column: 8; grid-row: 39;">
+        <div class="atomic-number">61</div>
+        <div class="symbol">Pm</div>
+        <div class="name">Promécio</div>
+        <div class="atomic-mass">(145)</div>
+    </div>
+    <!-- Sm -->
+    <div class="element" style="grid-column: 9; grid-row: 39;">
+        <div class="atomic-number">62</div>
+        <div class="symbol">Sm</div>
+        <div class="name">Samário</div>
+        <div class="atomic-mass">150.36</div>
+    </div>
+    <!-- Eu -->
+    <div class="element" style="grid-column: 10; grid-row: 39;">
+        <div class="atomic-number">63</div>
+        <div class="symbol">Eu</div>
+        <div class="name">Európio</div>
+        <div class="atomic-mass">151.964</div>
+    </div>
+    <!-- Gd -->
+    <div class="element" style="grid-column: 11; grid-row: 39;">
+        <div class="atomic-number">64</div>
+        <div class="symbol">Gd</div>
+        <div class="name">Gadolínio</div>
+        <div class="atomic-mass">157.25</div>
+    </div>
+    <!-- Tb -->
+    <div class="element" style="grid-column: 12; grid-row: 39;">
+        <div class="atomic-number">65</div>
+        <div class="symbol">Tb</div>
+        <div class="name">Térbio</div>
+        <div class="atomic-mass">158.925</div>
+    </div>
+    <!-- Dy -->
+    <div class="element" style="grid-column: 13; grid-row: 39;">
+        <div class="atomic-number">66</div>
+        <div class="symbol">Dy</div>
+        <div class="name">Disprósio</div>
+        <div class="atomic-mass">162.5</div>
+    </div>
+    <!-- Ho -->
+    <div class="element" style="grid-column: 14; grid-row: 39;">
+        <div class="atomic-number">67</div>
+        <div class="symbol">Ho</div>
+        <div class="name">Hólmio</div>
+        <div class="atomic-mass">164.93</div>
+    </div>
+    <!-- Er -->
+    <div class="element" style="grid-column: 15; grid-row: 39;">
+        <div class="atomic-number">68</div>
+        <div class="symbol">Er</div>
+        <div class="name">Érbio</div>
+        <div class="atomic-mass">167.259</div>
+    </div>
+    <!-- Tm -->
+    <div class="element" style="grid-column: 16; grid-row: 39;">
+        <div class="atomic-number">69</div>
+        <div class="symbol">Tm</div>
+        <div class="name">Túlio</div>
+        <div class="atomic-mass">168.934</div>
+    </div>
+    <!-- Yb -->
+    <div class="element" style="grid-column: 17; grid-row: 39;">
+        <div class="atomic-number">70</div>
+        <div class="symbol">Yb</div>
+        <div class="name">Itérbio</div>
+        <div class="atomic-mass">173.045</div>
+    </div>
+    <!-- Lu -->
+    <div class="element" style="grid-column: 18; grid-row: 39;">
+        <div class="atomic-number">71</div>
+        <div class="symbol">Lu</div>
+        <div class="name">Lutécio</div>
+        <div class="atomic-mass">174.966</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 4; grid-row: 6;">
+        <div class="atomic-number">72</div>
+        <div class="symbol">Hf</div>
+        <div class="name">Háfnio</div>
+        <div class="atomic-mass">178.49</div>
+    </div>
+    <!-- Ta -->
+    <div class="element" style="grid-column: 5; grid-row: 6;">
+        <div class="atomic-number">73</div>
+        <div class="symbol">Ta</div>
+        <div class="name">Tântalo</div>
+        <div class="atomic-mass">180.948</div>
+    </div>
+    <!-- W -->
+    <div class="element" style="grid-column: 6; grid-row: 6;">
+        <div class="atomic-number">74</div>
+        <div class="symbol">W</div>
+        <div class="name">Tungstênio</div>
+        <div class="atomic-mass">183.84</div>
+    </div>
+    <!-- Re -->
+    <div class="element" style="grid-column: 7; grid-row: 6;">
+        <div class="atomic-number">75</div>
+        <div class="symbol">Re</div>
+        <div class="name">Rênio</div>
+        <div class="atomic-mass">186.207</div>
+    </div>
+    <!-- Os -->
+    <div class="element" style="grid-column: 8; grid-row: 6;">
+        <div class="atomic-number">76</div>
+        <div class="symbol">Os</div>
+        <div class="name">Ósmio</div>
+        <div class="atomic-mass">190.23</div>
+    </div>
+    <!-- Ir -->
+    <div class="element" style="grid-column: 9; grid-row: 6;">
+        <div class="atomic-number">77</div>
+        <div class="symbol">Ir</div>
+        <div class="name">Irídio</div>
+        <div class="atomic-mass">192.217</div>
+    </div>
+    <!-- Pt -->
+    <div class="element" style="grid-column: 10; grid-row: 6;">
+        <div class="atomic-number">78</div>
+        <div class="symbol">Pt</div>
+        <div class="name">Platina</div>
+        <div class="atomic-mass">195.084</div>
+    </div>
+    <!-- Au -->
+    <div class="element" style="grid-column: 11; grid-row: 6;">
+        <div class="atomic-number">79</div>
+        <div class="symbol">Au</div>
+        <div class="name">Ouro</div>
+        <div class="atomic-mass">196.966</div>
+    </div>
+    <!-- Hg -->
+    <div class="element" style="grid-column: 12; grid-row: 6;">
+        <div class="atomic-number">80</div>
+        <div class="symbol">Hg</div>
+        <div class="name">Mercúrio</div>
+        <div class="atomic-mass">200.592</div>
+    </div>
+    <!-- Tl -->
+    <div class="element" style="grid-column: 13; grid-row: 6;">
+        <div class="atomic-number">81</div>
+        <div class="symbol">Tl</div>
+        <div class="name">Tálio</div>
+        <div class="atomic-mass">204.38</div>
+    </div>
+    <!-- Pb -->
+    <div class="element" style="grid-column: 14; grid-row: 6;">
+        <div class="atomic-number">82</div>
+        <div class="symbol">Pb</div>
+        <div class="name">Chumbo</div>
+        <div class="atomic-mass">207.2</div>
+    </div>
+    <!-- Bi -->
+    <div class="element" style="grid-column: 15; grid-row: 6;">
+        <div class="atomic-number">83</div>
+        <div class="symbol">Bi</div>
+        <div class="name">Bismuto</div>
+        <div class="atomic-mass">208.98</div>
+    </div>
+    <!-- Po -->
+    <div class="element" style="grid-column: 16; grid-row: 6;">
+        <div class="atomic-number">84</div>
+        <div class="symbol">Po</div>
+        <div class="name">Polônio</div>
+        <div class="atomic-mass">(209)</div>
+    </div>
+    <!-- At -->
+    <div class="element" style="grid-column: 17; grid-row: 6;">
+        <div class="atomic-number">85</div>
+        <div class="symbol">At</div>
+        <div class="name">Ástato</div>
+        <div class="atomic-mass">(210)</div>
+    </div>
+    <!-- Rn -->
+    <div class="element" style="grid-column: 18; grid-row: 6;">
+        <div class="atomic-number">86</div>
+        <div class="symbol">Rn</div>
+        <div class="name">Radônio</div>
+        <div class="atomic-mass">(222)</div>
+    </div>
+    <!-- Fr -->
+    <div class="element" style="grid-column: 1; grid-row: 7;">
+        <div class="atomic-number">87</div>
+        <div class="symbol">Fr</div>
+        <div class="name">Frâncio</div>
+        <div class="atomic-mass">(223)</div>
+    </div>
+    <!-- Ra -->
+    <div class="element" style="grid-column: 2; grid-row: 7;">
+        <div class="atomic-number">88</div>
+        <div class="symbol">Ra</div>
+        <div class="name">Rádio</div>
+        <div class="atomic-mass">(226)</div>
+    </div>
+    <!-- Ac -->
+    <div class="element" style="grid-column: 4; grid-row: 40;">
+        <div class="atomic-number">89</div>
+        <div class="symbol">Ac</div>
+        <div class="name">Actínio</div>
+        <div class="atomic-mass">(227)</div>
+    </div>
+    <!-- Th -->
+    <div class="element" style="grid-column: 5; grid-row: 40;">
+        <div class="atomic-number">90</div>
+        <div class="symbol">Th</div>
+        <div class="name">Tório</div>
+        <div class="atomic-mass">232.038</div>
+    </div>
+    <!-- Pa -->
+    <div class="element" style="grid-column: 6; grid-row: 40;">
+        <div class="atomic-number">91</div>
+        <div class="symbol">Pa</div>
+        <div class="name">Protactínio</div>
+        <div class="atomic-mass">231.036</div>
+    </div>
+    <!-- U -->
+    <div class="element" style="grid-column: 7; grid-row: 40;">
+        <div class="atomic-number">92</div>
+        <div class="symbol">U</div>
+        <div class="name">Urânio</div>
+        <div class="atomic-mass">238.029</div>
+    </div>
+    <!-- Np -->
+    <div class="element" style="grid-column: 8; grid-row: 40;">
+        <div class="atomic-number">93</div>
+        <div class="symbol">Np</div>
+        <div class="name">Neptúnio</div>
+        <div class="atomic-mass">(237)</div>
+    </div>
+    <!-- Pu -->
+    <div class="element" style="grid-column: 9; grid-row: 40;">
+        <div class="atomic-number">94</div>
+        <div class="symbol">Pu</div>
+        <div class="name">Plutônio</div>
+        <div class="atomic-mass">(244)</div>
+    </div>
+    <!-- Am -->
+    <div class="element" style="grid-column: 10; grid-row: 40;">
+        <div class="atomic-number">95</div>
+        <div class="symbol">Am</div>
+        <div class="name">Amerício</div>
+        <div class="atomic-mass">(243)</div>
+    </div>
+    <!-- Cm -->
+    <div class="element" style="grid-column: 11; grid-row: 40;">
+        <div class="atomic-number">96</div>
+        <div class="symbol">Cm</div>
+        <div class="name">Cúrio</div>
+        <div class="atomic-mass">(247)</div>
+    </div>
+    <!-- Bk -->
+    <div class="element" style="grid-column: 12; grid-row: 40;">
+        <div class="atomic-number">97</div>
+        <div class="symbol">Bk</div>
+        <div class="name">Berquélio</div>
+        <div class="atomic-mass">(247)</div>
+    </div>
+    <!-- Cf -->
+    <div class="element" style="grid-column: 13; grid-row: 40;">
+        <div class="atomic-number">98</div>
+        <div class="symbol">Cf</div>
+        <div class="name">Califórnio</div>
+        <div class="atomic-mass">(251)</div>
+    </div>
+    <!-- Es -->
+    <div class="element" style="grid-column: 14; grid-row: 40;">
+        <div class="atomic-number">99</div>
+        <div class="symbol">Es</div>
+        <div class="name">Einstênio</div>
+        <div class="atomic-mass">(252)</div>
+    </div>
+    <!-- Fm -->
+    <div class="element" style="grid-column: 15; grid-row: 40;">
+        <div class="atomic-number">100</div>
+        <div class="symbol">Fm</div>
+        <div class="name">Férmio</div>
+        <div class="atomic-mass">(257)</div>
+    </div>
+    <!-- Md -->
+    <div class="element" style="grid-column: 16; grid-row: 40;">
+        <div class="atomic-number">101</div>
+        <div class="symbol">Md</div>
+        <div class="name">Mendelévio</div>
+        <div class="atomic-mass">(258)</div>
+    </div>
+    <!-- No -->
+    <div class="element" style="grid-column: 17; grid-row: 40;">
+        <div class="atomic-number">102</div>
+        <div class="symbol">No</div>
+        <div class="name">Nobélio</div>
+        <div class="atomic-mass">(259)</div>
+    </div>
+    <!-- Lr -->
+    <div class="element" style="grid-column: 18; grid-row: 40;">
+        <div class="atomic-number">103</div>
+        <div class="symbol">Lr</div>
+        <div class="name">Laurêncio</div>
+        <div class="atomic-mass">(266)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 4; grid-row: 7;">
+        <div class="atomic-number">104</div>
+        <div class="symbol">Rf</div>
+        <div class="name">Rutherfórdio</div>
+        <div class="atomic-mass">(267)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 5; grid-row: 7;">
+        <div class="atomic-number">105</div>
+        <div class="symbol">Db</div>
+        <div class="name">Dúbnio</div>
+        <div class="atomic-mass">(270)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 6; grid-row: 7;">
+        <div class="atomic-number">106</div>
+        <div class="symbol">Sg</div>
+        <div class="name">Seabórgio</div>
+        <div class="atomic-mass">(271)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 7; grid-row: 7;">
+        <div class="atomic-number">107</div>
+        <div class="symbol">Bh</div>
+        <div class="name">Bóhrio</div>
+        <div class="atomic-mass">(270)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 8; grid-row: 7;">
+        <div class="atomic-number">108</div>
+        <div class="symbol">Hs</div>
+        <div class="name">Hássio</div>
+        <div class="atomic-mass">(269)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 9; grid-row: 7;">
+        <div class="atomic-number">109</div>
+        <div class="symbol">Mt</div>
+        <div class="name">Meitnério</div>
+        <div class="atomic-mass">(278)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 10; grid-row: 7;">
+        <div class="atomic-number">110</div>
+        <div class="symbol">Ds</div>
+        <div class="name">Darmstádio</div>
+        <div class="atomic-mass">(281)</div>
+    </div>   
+    <!-- Hf -->
+    <div class="element" style="grid-column: 11; grid-row: 7;">
+        <div class="atomic-number">111</div>
+        <div class="symbol">Rg</div>
+        <div class="name">Roentgênio</div>
+        <div class="atomic-mass">(282)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 12; grid-row: 7;">
+        <div class="atomic-number">112</div>
+        <div class="symbol">Cn</div>
+        <div class="name">Copernício</div>
+        <div class="atomic-mass">(285)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 13; grid-row: 7;">
+        <div class="atomic-number">113</div>
+        <div class="symbol">Nh</div>
+        <div class="name">Nihônio</div>
+        <div class="atomic-mass">(286)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 14; grid-row: 7;">
+        <div class="atomic-number">114</div>
+        <div class="symbol">Fl</div>
+        <div class="name">Fleróvio</div>
+        <div class="atomic-mass">(289)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 15; grid-row: 7;">
+        <div class="atomic-number">115</div>
+        <div class="symbol">Mc</div>
+        <div class="name">Moscóvio</div>
+        <div class="atomic-mass">(290)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 16; grid-row: 7;">
+        <div class="atomic-number">116</div>
+        <div class="symbol">Lv</div>
+        <div class="name">Livermório</div>
+        <div class="atomic-mass">(293)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 17; grid-row: 7;">
+        <div class="atomic-number">117</div>
+        <div class="symbol">Ts</div>
+        <div class="name">Tenessino</div>
+        <div class="atomic-mass">(294)</div>
+    </div>
+    <!-- Hf -->
+    <div class="element" style="grid-column: 18; grid-row: 7;">
+        <div class="atomic-number">118</div>
+        <div class="symbol">Og</div>
+        <div class="name">Oganessõnio</div>
+        <div class="atomic-mass">(294)</div>
+    </div>
+    <!-- Quadrado com informações gerais -->
+    <div class="info-square">
+      <p><strong>Créditos Gerais:</strong></p>
+      <p>Esta Tabela Peródica foi criada por Raphael Romano.</p>
+      <p>Se tiver Sugestões ou Erros envie um email para:</p>
+      <p>raphael.souza@alefperetz.org.br</p>
+    </div>
+</div>
+</body>
+</html>
